@@ -1,6 +1,7 @@
 import reflex as rx
 from typing import List
 
+from reflex_test.model import Chat
 from . import ai
 
 class ChatMessage(rx.Base):
@@ -14,6 +15,13 @@ class ChatState(rx.State):
     @rx.var
     def user_did_submit(self) -> bool:
         return self.did_submit
+    
+    def on_load(self):
+        with rx.session() as session:
+            results = session.exec(
+                Chat.select()
+            ).all()
+            print(results)
     
     def append_message(self, message: str, is_bot: bool):
         self.messages.append(ChatMessage(message=message, is_bot=is_bot))

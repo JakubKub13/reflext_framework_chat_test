@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=0.49.0",
+    "decouple>=0.0.7",
     "dotenv>=0.9.9",
+    "psycopg2-binary>=2.9.10",
+    "python-decouple>=3.8",
     "reflex>=0.7.4",
 ]
