@@ -1,3 +1,4 @@
 from .page import chat_page
+from . import state
 
-__all__ = ['chat_page']
+__all__ = ['chat_page', 'state']
