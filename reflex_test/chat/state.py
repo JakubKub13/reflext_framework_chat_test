@@ -18,13 +18,9 @@ class ChatState(rx.State):
     def user_did_submit(self) -> bool:
         return self.did_submit
     
-    @rx.var
-    def session_id(self) -> str:
-        return self.router.page.params.get('session_id')
-    
     def get_session_id(self) -> int:
         try:
-            my_session_id = int(self.router.page.params.get('session_id', '-1'))
+            my_session_id = int(self.router.page.params.get('session_id'))
         except:
             my_session_id = None
         return my_session_id
